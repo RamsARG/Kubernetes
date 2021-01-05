@@ -1,0 +1,6 @@
+kubectl apply -f 01-deployment-test-nginx.yaml
+kubectl drain minikube-m02 --ignore-daemonsets
+kubectl uncordon minikube-m02
+kubectl delete deployment nginx
+kubectl apply -f 02-PodDisruptionBudgets-nginx.yaml
+kubectl drain minikube-m02 --ignore-daemonsets
